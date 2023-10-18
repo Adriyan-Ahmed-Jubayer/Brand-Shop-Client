@@ -11,7 +11,7 @@ const Root = () => {
             <header>
                 <Navigation></Navigation>
             </header>
-            <main>
+            <main className='min-h-screen'>
                 <Outlet></Outlet>
             </main>
             <footer>

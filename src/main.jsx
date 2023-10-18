@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom/client'
 import Root from "./Root/Root";
 import React from 'react'
 import './index.css'
+import Add from "./Components/AP Page/ADD/Add";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: '/add-product',
+        element: <Add></Add>,
       }
     ]
   },

@@ -12,36 +12,37 @@ const Navigation = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
-                                    <Link>Home</Link>
+                                    <Link to='/'>Home</Link>
                                 </li>
                                 <li>
-                                    <Link>Add Product </Link>
+                                    <Link to='add-product'>Add Product </Link>
                                 </li>
                                 <li>
-                                    <Link>My Cart</Link>
+                                    <Link to='/my-cart'>My Cart</Link>
                                 </li>
                             </ul>
                         </div>
-                        <Link className="btn btn-ghost normal-case text-xl">
-                            <img className="h-[30px] md:h-[40px] lg:h-[50px] " src="https://i.ibb.co/Qp4FjBw/logo2.png" alt="" />
+                        <Link className="btn btn-ghost normal-case text-xl flex items-center gap-1 md:gap-2.5 lg:gap-4 ">
+                            <img className="h-[30px] md:h-[40px] lg:h-[50px] " src="https://i.ibb.co/BVV1mcq/pngegg-1.png" alt="Logo" />
+                            <h1 className="text-base md:text-lg lg:text-xl font-bold"><span className="text-blue-600">High</span><span className="text-red-500">Tech</span></h1>
                         </Link>
                     </div>
                     <div className="navbar-center hidden lg:flex items-center">
                         <ul className="menu menu-horizontal px-1 flex items-center font-medium text-xs md:text-sm lg:text-base">
                             <li>
-                                <Link>Home</Link>
+                                <Link to='/'>Home</Link>
                             </li>
                             <li>
-                                <Link>Add Product </Link>
+                                <Link to='/add-product'>Add Product </Link>
                             </li>
                             <li>
-                                <Link>My Cart</Link>
+                                <Link to='/my-cart'>My Cart</Link>
                             </li>
                         </ul>
                     </div>
                     <div className="navbar-end ">
-                        <Link>
-                            <button className="text-xs md:text-sm lg:text-base bg-[#B68C5A] py-3 px-3 rounded-md  text-white font-semibold cursor-pointer">LOGIN</button>
+                        <Link to="/login">
+                            <button className="text-xs md:text-sm lg:text-base bg-red-500 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">LOGIN</button>
                         </Link>
                     </div>
                 </div>
