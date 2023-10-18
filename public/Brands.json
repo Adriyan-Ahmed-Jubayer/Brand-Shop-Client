@@ -1,0 +1,32 @@
+[
+    {
+        "slug": 1,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVlTVjS2SgcAesz_19Wcfrl-wR2UEHr_4VsbcZf9nIU6Zw10PeS2Yk1ePTDiFlkUFjfi0&usqp=CAU",
+        "name": "Apple"
+    },
+    {
+        "slug": 2,
+        "image": "https://1000logos.net/wp-content/uploads/2021/05/Google-logo.png",
+        "name": "Google"
+    },
+    {
+        "slug": 3,
+        "image": "https://www.shutterstock.com/image-photo/kiev-ukraine-march-31-2015-260nw-270200051.jpg",
+        "name": "Samsung"
+    },
+    {
+        "slug": 4,
+        "image": "https://logos-world.net/wp-content/uploads/2020/04/Sony-Logo.png",
+        "name": "Sony"
+    },
+    {
+        "slug": 5,
+        "image": "https://logowik.com/content/uploads/images/intel-2020-new3327.jpg",
+        "name": "Intel"
+    },
+    {
+        "slug": 6,
+        "image": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RWCZER?ver=1433&q=90&m=6&h=278&w=494&b=%23FFFFFFFF&l=f&o=t&aim=true",
+        "name": "Microsoft"
+    }
+]
