@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navigation = () => {
     return (
@@ -12,13 +12,13 @@ const Navigation = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li>
-                                    <Link to='/'>Home</Link>
+                                    <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/'>Home</NavLink>
                                 </li>
                                 <li>
-                                    <Link to='add-product'>Add Product </Link>
+                                    <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='add-product'>Add Product </NavLink>
                                 </li>
                                 <li>
-                                    <Link to='/my-cart'>My Cart</Link>
+                                    <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/my-cart'>My Cart</NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -30,13 +30,13 @@ const Navigation = () => {
                     <div className="navbar-center hidden lg:flex items-center">
                         <ul className="menu menu-horizontal px-1 flex items-center font-medium text-xs md:text-sm lg:text-base">
                             <li>
-                                <Link to='/'>Home</Link>
+                                <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/'>Home</NavLink>
                             </li>
                             <li>
-                                <Link to='/add-product'>Add Product </Link>
+                                <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='add-product'>Add Product </NavLink>
                             </li>
                             <li>
-                                <Link to='/my-cart'>My Cart</Link>
+                                <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/my-cart'>My Cart</NavLink>
                             </li>
                         </ul>
                     </div>
