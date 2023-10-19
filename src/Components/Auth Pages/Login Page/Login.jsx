@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/Auth/AuthProvider";
 import { BsGoogle } from "react-icons/bs"
+import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
@@ -24,10 +25,13 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <div className="text-black text-center">
+                        <p>Already have an account <Link to="/register" className="text-purple-600  font-bold hover:border-purple-600 hover:border-b-2">REGISTER</Link> </p>
+                    </div>
                     <div className="flex items-center gap-1">
                         <div className="bg-violet-500 h-2 w-full"></div>
                         <h1>OR</h1>
-                        <div  className="bg-violet-500 h-2 w-full"></div>
+                        <div className="bg-violet-500 h-2 w-full"></div>
                     </div>
                     <div className="text-center mt-8">
                         <button className="text-purple py-2 px-4 md:py-4 md:px-8 rounded-sm font-bold border-purple-600 border-2 w-full flex items-center justify-center gap-2 hover:text-purple-600"><BsGoogle></BsGoogle>Login With Google</button>
