@@ -5,13 +5,8 @@ import auth from "../../Firebase/firebase.config";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({children}) => {
-
     const [User, setUser] = useState(null);
-
-
     const [isLoading, setIsLoading] = useState(true)
-
-
     const CreateAccount = (email, password) => {
         setIsLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
@@ -20,6 +15,12 @@ const AuthProvider = ({children}) => {
         const GGLProvider = new GoogleAuthProvider
         return signInWithPopup(auth, GGLProvider)
     }
+
+    const LoginAccount = (email, password) => {
+        setIsLoading(true)
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
     const LogOutAccount = () => {
         setIsLoading(true)
        return signOut(auth);
@@ -32,16 +33,9 @@ const AuthProvider = ({children}) => {
         })
     }
 
-    const LoginAccount = (email, password) => {
-        setIsLoading(true)
-        return signInWithEmailAndPassword(auth, email, password);
-    }
-
-
-
     useEffect(() => {
-        const unSubscribe =  onAuthStateChanged(auth, user =>{
-              setUser(user)
+        const unSubscribe =  onAuthStateChanged(auth, userAccount =>{
+              setUser(userAccount)
               setIsLoading(false)
           });
           return () => {
@@ -50,7 +44,7 @@ const AuthProvider = ({children}) => {
       }, [])
 
     const AuthMethods = {
-        userAccount: User,
+        User,
         isLoading,
         CreateAccount,
         GoogleLogin,

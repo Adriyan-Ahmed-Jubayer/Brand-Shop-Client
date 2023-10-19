@@ -1,6 +1,15 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/Auth/AuthProvider";
 
 const Navigation = () => {
+    const { User, LogOutAccount } = useContext(AuthContext);
+    const handleLogOut = () => {
+        LogOutAccount()
+        .then(res => {
+            toast.success('Log Out Successful')
+        })
+    }
     return (
         <>
             <section className="container mx-auto">
@@ -41,9 +50,27 @@ const Navigation = () => {
                         </ul>
                     </div>
                     <div className="navbar-end ">
-                        <Link to="/login">
-                            <button className="text-xs md:text-sm lg:text-base bg-red-500 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">LOGIN</button>
-                        </Link>
+                        {
+                            User ? <>
+                                <div className="flex flex-col-reverse md:flex-row md:gap-2 items-center pr-4 border-blue-600 border-r-4">
+                                    <div>
+                                        <h1 className="text-sm md:text-base lg:text-lg text-black font-bold">{User.displayName}</h1>
+                                    </div>
+                                    <div className="dropdown dropdown-end">
+                                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                            <div className="w-10 rounded-full">
+                                                <img src={User.photoURL} />
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button onClick={handleLogOut} className="text-xs md:text-sm ml-2 lg:text-base bg-red-500 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">
+                                    LOGOUT
+                                </button>
+                            </> : <Link to="/login">
+                                <button className="text-xs md:text-sm lg:text-base bg-red-500 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">LOGIN</button>
+                            </Link>
+                        }
                     </div>
                 </div>
             </section>

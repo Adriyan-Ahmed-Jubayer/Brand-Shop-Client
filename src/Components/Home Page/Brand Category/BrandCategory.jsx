@@ -18,9 +18,9 @@ const BrandCategory = () => {
                     {
                         Brands.map(brand =>
                             <Link to={`/brands-products/${brand.name}`} key={brand.slug}>
-                                <div  className="text-center border-purple-500 border rounded-lg p-5">
+                                <div  className="text-center border-purple-500 border-2 hover:border-4 rounded-lg p-5">
                                     <img className="h-[40px] md:h-[100px] lg:h-[180px] w-[100px] md:w-[200px] lg:w-[400px] rounded-lg " src={brand.image} alt="" />
-                                    <h1>{brand.name}</h1>
+                                    <h1 className="md:text-lg lg:text-xl font-semibold">{brand.name}</h1>
                                 </div>
                             </Link>
                             )
