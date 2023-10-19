@@ -55,11 +55,11 @@ const Navigation = () => {
                             User ? <>
                                 <div className="flex flex-col-reverse md:flex-row md:gap-2 items-center pr-4 border-blue-600 border-r-4">
                                     <div>
-                                        <h1 className="text-sm md:text-base lg:text-lg text-black font-bold">{User.displayName}</h1>
+                                        <h1 className="text-xs md:text-base lg:text-lg text-black font-bold">{User.displayName}</h1>
                                     </div>
                                     <div className="dropdown dropdown-end">
                                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                            <div className="w-10 rounded-full">
+                                            <div className="w-8 md:w-10 rounded-full">
                                                 <img src={User.photoURL} />
                                             </div>
                                         </label>
