@@ -47,6 +47,7 @@ const Login = () => {
                 toast.success('Login successful! You now have access. 🎉😊', {
                     position: "top-center"
                 })
+                navigate()
             }
         })
         .catch(err => {

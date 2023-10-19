@@ -9,6 +9,7 @@ import Root from "./Root/Root";
 import React from 'react'
 import './index.css'
 import Add from "./Components/AP Page/ADD/Add";
+import Protection from "./Components/Protection Page/Protection/Protection";
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/add-product',
-        element: <Add></Add>,
+        element: <Protection><Add></Add></Protection>,
       }
     ]
   },
