@@ -8,7 +8,6 @@ const Login = () => {
     const Location = useLocation();
     const track = useNavigate();
     const navigate = () => {
-        console.log(Location.state);
         track(Location?.state ? Location.state : "/")
     }
     const { LoginAccount, GoogleLogin } = useContext(AuthContext);

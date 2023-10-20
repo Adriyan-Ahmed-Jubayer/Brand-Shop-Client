@@ -21,8 +21,6 @@ const Products = () => {
                             navigation
                             pagination={{ clickable: true }}
                             scrollbar={{ draggable: true }}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
                         >
                             <SwiperSlide>
                                 <img className="w-full md:h-[350px] lg:h-[800px] " src="https://static.vecteezy.com/system/resources/thumbnails/002/478/302/small/sale-electronics-banner-background-free-vector.jpg" alt="" />

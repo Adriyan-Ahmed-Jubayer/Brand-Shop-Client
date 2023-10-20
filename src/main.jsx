@@ -12,6 +12,8 @@ import Add from "./Components/AP Page/ADD/Add";
 import Protection from "./Components/Protection Page/Protection/Protection";
 import Products from "./Components/Products Page/Products";
 import Details from "./Components/Details Page/Details/Details";
+import Carts from "./Components/Collection Page/Carts/Carts";
+import Update from "./Components/Update Page/Update/Update";
 
 
 const router = createBrowserRouter([
@@ -45,6 +47,15 @@ const router = createBrowserRouter([
         path: '/products/:brand/:id',
         element: <Protection><Details></Details></Protection>,
         loader:  ({params}) => fetch(`http://localhost:4849/products/${params.brand}/${params.id}`)
+      },
+      {
+        path: '/collection/:uid',
+        element: <Protection><Carts></Carts></Protection>,
+      },
+      {
+        path: '/update/:id',
+        element: <Protection><Update></Update></Protection>,
+        loader: ({params}) => fetch(`http://localhost:4849/products/brand/${params.id}`)
       }
     ]
   },

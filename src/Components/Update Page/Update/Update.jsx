@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Add = () => {
-    const handleAddProduct = e => {
+const Update = () => {
+    const {id} = useParams();
+    const product = useLoaderData();
+    const  {name, brand, price, image, type, rating, shortDescription } = product;
+    const handleUpdateProduct = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -11,45 +14,44 @@ const Add = () => {
         const image = form.photo.value;
         const type = form.type.value;
         const rating = form.rating.value;
-        const shortDescription = form.description.value;
-        const product = { name, brand, price, image, type, rating, shortDescription };
-
-        fetch('http://localhost:4849/products', {
-            method: "POST",
+        const shortDescription  = form.description.value;
+        const product = {name, brand, price, image, type,rating, shortDescription};
+        console.log(product);
+        fetch(`http://localhost:4849/products/${brand}/${id}`, {
+            method: "PUT",
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(product)
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data) {
-                    form.reset()
-                    toast.success('Product Added Successfully !')
-                }
-            })
-
-    }
+        .then(res => res.json())
+        .then(data => {
+            if(data){
+                toast.success('The Product Updated Successfully !')
+                form.reset();
+            }
+        })
+    };
     return (
         <>
             <section className='mb-20'>
                 <div className=" md:mx-10 lg:mx-[300px]">
                     <div className="bg-base-200 py-6 px-7 md:py-11 md:px-12 lg:py-[70px] lg:px-28 text-center rounded-[5px]">
                         <div className='space-y-3 md:space-y-6 lg:space-y-8'>
-                            <h1 className="text-lg md:text-3xl lg:text-5xl    font-bold">Add Your Product</h1>
+                            <h1 className="text-lg md:text-3xl lg:text-5xl    font-bold">Update Your <span className="text-purple-500">Product</span></h1>
                         </div>
-                        <form onSubmit={handleAddProduct} className='grid grid-cols-1 lg:grid-cols-2 items-center justify-between gap-6'>
+                        <form onSubmit={handleUpdateProduct} className='grid grid-cols-1 lg:grid-cols-2 items-center justify-between gap-6'>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold ">Name</span>
                                 </label>
-                                <input type="text" placeholder="Enter product name" className="input input-bordered" name='name' required />
+                                <input type="text" placeholder="Enter product name" className="input input-bordered" name='name' required defaultValue={name} />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold ">Brand Name</span>
                                 </label>
-                                <select name="brand" className="input input-bordered">
+                                <select name="brand" className="input input-bordered" defaultValue={brand}>
                                     <option value="Apple">Apple</option>
                                     <option value="Google">Google</option>
                                     <option value="Samsung">Samsung</option>
@@ -62,33 +64,33 @@ const Add = () => {
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold ">Price</span>
                                 </label>
-                                <input type="text" placeholder="Enter price" className="input input-bordered" name='price' required />
+                                <input type="text" placeholder="Enter price" className="input input-bordered" name='price' required defaultValue={price} />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Photo</span>
                                 </label>
-                                <input type="text" placeholder="Enter photo URL" className="input input-bordered" name='photo' required />
+                                <input type="text" placeholder="Enter photo URL" className="input input-bordered" name='photo' required defaultValue={image} />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Type</span>
                                 </label>
-                                <input type="text" placeholder="Enter product type" className="input input-bordered" name='type' required />
+                                <input type="text" placeholder="Enter product type" className="input input-bordered" name='type' required defaultValue={type} />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Rating</span>
                                 </label>
-                                <input type="text" placeholder="Give ratings out of 5" className="input input-bordered" name='rating' required />
+                                <input type="text" placeholder="Give ratings out of 5" className="input input-bordered" name='rating' required defaultValue={rating} />
                             </div>
                             <div className="form-control lg:col-span-2">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Short Description</span>
                                 </label>
-                                <input type="text" placeholder="Enter a short description" className="input input-bordered" name='description' required />
+                                <input type="text" placeholder="Enter a short description" className="input input-bordered" name='description' required defaultValue={shortDescription} />
                             </div>
-                            <button className='lg:col-span-2   mt-[10px] md:mt-[15px] lg:mt-[30px] text-base md:text-lg lg:text-xl py-2 md:py-3 lg:py-4 px-2 md:px-3 lg:px-4 rounded-[10px] bg-purple-500 text-white hover:bg-purple-600 font-bold '>Add Product</button>
+                            <button className='lg:col-span-2   mt-[10px] md:mt-[15px] lg:mt-[30px] text-base md:text-lg lg:text-xl py-2 md:py-3 lg:py-4 px-2 md:px-3 lg:px-4 rounded-[10px] bg-purple-500 text-white hover:bg-purple-600 font-bold '>Update</button>
                         </form>
                     </div>
                     <div className="w-fit ">
@@ -102,4 +104,4 @@ const Add = () => {
     );
 };
 
-export default Add;
+export default Update;

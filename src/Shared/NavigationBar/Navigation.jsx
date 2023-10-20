@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { BallTriangle } from 'react-loader-spinner'
 import { AuthContext } from "../../Providers/Auth/AuthProvider";
 import { toast } from "react-toastify";
 
 const Navigation = () => {
-    const { User, LogOutAccount } = useContext(AuthContext);
+    const { User, LogOutAccount, isLoading } = useContext(AuthContext);
     const handleLogOut = () => {
         LogOutAccount()
-        .then(res => {
-            toast.success('Log Out Successful')
-        })
+            .then(res => {
+                toast.success('Log Out Successful')
+            })
     }
     return (
         <>
@@ -25,10 +26,10 @@ const Navigation = () => {
                                     <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/'>Home</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='add-product'>Add Product </NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/add-product'>Add Product </NavLink>
                                 </li>
                                 <li>
-                                    <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/my-cart'>My Cart</NavLink>
+                                    <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to={`/collection/${User?.uid}`}>My Cart</NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -43,10 +44,10 @@ const Navigation = () => {
                                 <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/'>Home</NavLink>
                             </li>
                             <li>
-                                <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='add-product'>Add Product </NavLink>
+                                <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/add-product'>Add Product </NavLink>
                             </li>
                             <li>
-                                <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to='/my-cart'>My Cart</NavLink>
+                                <NavLink className={({ isActive }) => isActive ? 'bg-base-200' : 'bg-white'} to={`/collection/${User?.uid}`}>My Cart</NavLink>
                             </li>
                         </ul>
                     </div>
@@ -65,7 +66,7 @@ const Navigation = () => {
                                         </label>
                                     </div>
                                 </div>
-                                <button onClick={handleLogOut} className="text-xs md:text-sm ml-2 lg:text-base bg-purple-500 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">
+                                <button onClick={handleLogOut} className="text-xs md:text-sm ml-2 lg:text-base bg-purple-500 hover:bg-purple-600 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">
                                     LOGOUT
                                 </button>
                             </> : <Link to="/login">

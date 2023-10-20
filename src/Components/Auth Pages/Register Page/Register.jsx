@@ -38,7 +38,8 @@ const Register = () => {
         CreateAccount(email, pass)
             .then(res => {
                 updatingProfile(res, name, photo)
-                console.log(res.user);
+                toast.success('Congratulations ! Registration completed Successfully ! 🤩💕')
+                form.reset();
             })
             .catch(err => {
                 if (err.message == "Firebase: Error (auth/email-already-in-use).") {
