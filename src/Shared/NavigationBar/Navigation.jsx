@@ -65,11 +65,11 @@ const Navigation = () => {
                                         </label>
                                     </div>
                                 </div>
-                                <button onClick={handleLogOut} className="text-xs md:text-sm ml-2 lg:text-base bg-red-500 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">
+                                <button onClick={handleLogOut} className="text-xs md:text-sm ml-2 lg:text-base bg-purple-500 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">
                                     LOGOUT
                                 </button>
                             </> : <Link to="/login">
-                                <button className="text-xs md:text-sm lg:text-base bg-red-500 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">LOGIN</button>
+                                <button className="text-xs md:text-sm lg:text-base bg-purple-500 hover:bg-purple-600 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">LOGIN</button>
                             </Link>
                         }
                     </div>

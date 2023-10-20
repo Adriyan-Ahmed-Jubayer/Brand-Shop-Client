@@ -2,12 +2,12 @@ const About = () => {
     return (
         <>
             <section className=" my-12">
-                <h1 className="text-center my-5 md:my-9 lg:my14 font-bold text-xl md:text-3xl lg:text-6xl">About US</h1>
-                <div className="text-center bg-teal-200 py-5 md:py-9 lg:py-14">
-                    <h1 className="text-xl md:text-3xl lg:text-6xl font-semibold">Our Journey: Tech Enthusiasts Unite</h1>
+                <h1 className="text-center my-4 md:my-7 lg:my-9 font-bold text-xl md:text-3xl lg:text-5xl">About US</h1>
+                <div className="text-center  py-5 md:py-9 lg:py-14">
+                    <h1 className="text-xl md:text-3xl lg:text-5xl font-semibold"><span className="text-purple-500">Our Journey :</span> Tech Enthusiasts Unite</h1>
                     <div className="flex flex-col-reverse md:flex-row items-center">
                         <div className="flex-1 text-left text-xs md:text-sm lg:text-lg">
-                            <p className=" md:pl-9 lg:pl-20 font-medium lg:leading-loose"> At HighTech , we are a passionate community of technology and electronics enthusiasts, dedicated to sharing our knowledge, discoveries, and insights with the world. Our "About Us" section is your window into the hearts and minds of the people behind this digital haven.
+                            <p className=" md:ml-9 lg:ml-20 font-medium lg:leading-loose py-8 px-14 lg:py-14 lg:px-20 bg-purple-500  rounded-tr-full rounded-bl-full rounded-tl-full"> At HighTech , we are a passionate community of technology and electronics enthusiasts, dedicated to sharing our knowledge, discoveries, and insights with the world. Our "About Us" section is your window into the hearts and minds of the people behind this digital haven.
 
                                 Discover the faces and stories that fuel our commitment to innovation and exploration. From our humble beginnings to our vision for the future, get to know the individuals who make up our vibrant team. Learn about our shared mission to bring you the latest in tech trends, gadget reviews, how-to guides, and much more.
 

@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Add = () => {
     const handleAddProduct = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
-        const brands = form.brands.value;
+        const brand = form.brand.value;
         const price = form.price.value;
         const photo = form.photo.value;
         const type = form.type.value;
         const rating = form.rating.value;
         const description  = form.description.value;
-        const product = {name, brands, price, photo, type,rating, description};
+        const product = {name, brand, price, photo, type,rating, description};
 
         fetch('http://localhost:4849/products', {
             method: "POST",
@@ -21,7 +22,10 @@ const Add = () => {
             body: JSON.stringify(product)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            form.reset()
+            toast.success('Product Added Successfully !')
+        })
 
     }
     return (
@@ -44,7 +48,7 @@ const Add = () => {
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold ">Brand Name</span>
                                 </label>
-                                <select name="brands" className="input input-bordered">
+                                <select name="brand" className="input input-bordered">
                                     <option value="Apple">Apple</option>
                                     <option value="Google">Google</option>
                                     <option value="Samsung">Samsung</option>
@@ -75,7 +79,7 @@ const Add = () => {
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Rating</span>
                                 </label>
-                                <input type="text" placeholder="Enter product rating" className="input input-bordered" name='rating' required />
+                                <input type="text" placeholder="Give ratings out of 5" className="input input-bordered" name='rating' required />
                             </div>
                             <div className="form-control lg:col-span-2">
                                 <label className="label">
@@ -83,12 +87,12 @@ const Add = () => {
                                 </label>
                                 <input type="text" placeholder="Enter a short description" className="input input-bordered" name='description' required />
                             </div>
-                            <button className='lg:col-span-2   mt-[10px] md:mt-[15px] lg:mt-[30px] text-base md:text-lg lg:text-xl py-2 md:py-3 lg:py-4 px-2 md:px-3 lg:px-4 rounded-[10px] bg-cyan-400 font-bold '>Add Coffee</button>
+                            <button className='lg:col-span-2   mt-[10px] md:mt-[15px] lg:mt-[30px] text-base md:text-lg lg:text-xl py-2 md:py-3 lg:py-4 px-2 md:px-3 lg:px-4 rounded-[10px] bg-purple-500 text-white hover:bg-purple-600 font-bold '>Add Coffee</button>
                         </form>
                     </div>
                     <div className="w-fit ">
                         <Link to='/' className=' w-fit '>
-                            <button className='flex items-center justify-center gap-2 my-[10px] md:my-[30px] lg:my-[50px] text-base md:text-lg lg:text-xl py-2 md:py-3 lg:py-4 px-2 md:px-3 lg:px-4 rounded-md bg-cyan-400 font-bold '>Back to home</button>
+                            <button className='flex items-center justify-center gap-2 my-[10px] md:my-[30px] lg:my-[50px] text-base md:text-lg lg:text-xl py-2 md:py-3 lg:py-4 px-2 md:px-3 lg:px-4 rounded-md bg-purple-500 text-white hover:bg-purple-600 font-bold '>Back to home</button>
                         </Link>
                     </div>
                 </div>

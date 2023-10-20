@@ -5,8 +5,8 @@ import { AuthContext } from "../../../Providers/Auth/AuthProvider";
 import { toast } from "react-toastify";
 
 const Register = () => {
-    const {CreateAccount, GoogleLogin, updatingProfile} = useContext(AuthContext)
-    const SpCrtrRgx =  /[!@#$%^&*()_+{}\[\]:;<>,.?~\\|\-]/;
+    const { CreateAccount, GoogleLogin, updatingProfile } = useContext(AuthContext)
+    const SpCrtrRgx = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\|\-]/;
     const CpLetterRgx = /^(?=.*[A-Z]).+$/;
     const handleRegister = e => {
         e.preventDefault();
@@ -15,20 +15,20 @@ const Register = () => {
         const email = form.email.value;
         const pass = form.password.value;
         const photo = form.photo.value;
-        if(pass.length < 6){
+        if (pass.length < 6) {
             toast.error('The password is less than 6 characters', {
                 position: 'top-center'
             })
             return;
         }
-        if(!CpLetterRgx.test(pass)){
+        if (!CpLetterRgx.test(pass)) {
             toast.error("The password don't have a capital letter", {
                 position: 'top-center'
             })
             return;
         }
 
-        if(!SpCrtrRgx.test(pass)){
+        if (!SpCrtrRgx.test(pass)) {
             toast.error("The password don't have a special character", {
                 position: 'top-center'
             })
@@ -36,32 +36,32 @@ const Register = () => {
         }
 
         CreateAccount(email, pass)
-        .then(res => {
-            updatingProfile(res, name, photo)
-            console.log(res.user);
-        })
-        .catch(err => {
-            if(err.message == "Firebase: Error (auth/email-already-in-use)."){
-                toast.error("The Email already in use")
-            }
-            else{
-                toast.error(err.message);
-            }
-        })
+            .then(res => {
+                updatingProfile(res, name, photo)
+                console.log(res.user);
+            })
+            .catch(err => {
+                if (err.message == "Firebase: Error (auth/email-already-in-use).") {
+                    toast.error("The Email already in use")
+                }
+                else {
+                    toast.error(err.message);
+                }
+            })
     }
 
-    const handleGGLLoigin = () =>{
+    const handleGGLLoigin = () => {
         GoogleLogin()
-        .then(res =>{
-            if(res){
-                toast.success('Login successful! You now have access. 🎉😊', {
-                    position: "top-center"
-                })
-            }
-        })
-        .catch(err => {
-            toast.error(err.message)
-        })
+            .then(res => {
+                if (res) {
+                    toast.success('Login successful! You now have access. 🎉😊', {
+                        position: "top-center"
+                    })
+                }
+            })
+            .catch(err => {
+                toast.error(err.message)
+            })
     }
     return (
         <>
@@ -93,7 +93,7 @@ const Register = () => {
                             <input type="text" placeholder="Image url" className="input input-bordered" name="photo" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                        <button className="text-xs md:text-sm lg:text-base bg-purple-500 hover:bg-purple-600 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md h text-white font-semibold cursor-pointer">REGISTER</button>
                         </div>
                     </form>
                     <div className="text-black text-center">
@@ -105,7 +105,7 @@ const Register = () => {
                         <div className="bg-violet-500 h-2 w-full"></div>
                     </div>
                     <div className="text-center mt-8">
-                        <button onClick={handleGGLLoigin} className="text-purple py-2 px-4 md:py-4 md:px-8 rounded-sm font-bold border-purple-600 border-2 w-full flex items-center justify-center gap-2 hover:text-purple-600"><BsGoogle></BsGoogle>Login With Google</button>
+                        <button onClick={handleGGLLoigin} className="text-purple py-2 px-4 md:py-4 md:px-8 rounded-sm font-bold border-purple-500 border-2 w-full flex items-center justify-center gap-2 hover:text-purple-500"><BsGoogle></BsGoogle>Login With Google</button>
                     </div>
                 </div>
             </section>
