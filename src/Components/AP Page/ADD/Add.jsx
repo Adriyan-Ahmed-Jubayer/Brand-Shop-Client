@@ -14,7 +14,7 @@ const Add = () => {
         const shortDescription = form.description.value;
         const product = { name, brand, price, image, type, rating, shortDescription };
 
-        fetch('http://localhost:4849/products', {
+        fetch('https://assignment-10-server-side-j6c21wesb-adriyan.vercel.app/products', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -32,9 +32,9 @@ const Add = () => {
     }
     return (
         <>
-            <section className='mb-20'>
+            <section className='pb-20'>
                 <div className=" md:mx-10 lg:mx-[300px]">
-                    <div className="bg-base-200 py-6 px-7 md:py-11 md:px-12 lg:py-[70px] lg:px-28 text-center rounded-[5px]">
+                    <div className="bg-base-200 dark:bg-slate-800 py-6 px-7 md:py-11 md:px-12 lg:py-[70px] lg:px-28 text-center rounded-[5px]">
                         <div className='space-y-3 md:space-y-6 lg:space-y-8'>
                             <h1 className="text-lg md:text-3xl lg:text-5xl    font-bold">Add Your Product</h1>
                         </div>
@@ -43,13 +43,13 @@ const Add = () => {
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold ">Name</span>
                                 </label>
-                                <input type="text" placeholder="Enter product name" className="input input-bordered" name='name' required />
+                                <input type="text" placeholder="Enter product name" className="input input-bordered dark:text-black" name='name' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold ">Brand Name</span>
                                 </label>
-                                <select name="brand" className="input input-bordered">
+                                <select name="brand" className="input input-bordered dark:text-black">
                                     <option value="Apple">Apple</option>
                                     <option value="Google">Google</option>
                                     <option value="Samsung">Samsung</option>
@@ -62,31 +62,31 @@ const Add = () => {
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold ">Price</span>
                                 </label>
-                                <input type="text" placeholder="Enter price" className="input input-bordered" name='price' required />
+                                <input type="text" placeholder="Enter price" className="input input-bordered dark:text-black" name='price' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Photo</span>
                                 </label>
-                                <input type="text" placeholder="Enter photo URL" className="input input-bordered" name='photo' required />
+                                <input type="text" placeholder="Enter photo URL" className="input input-bordered dark:text-black" name='photo' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Type</span>
                                 </label>
-                                <input type="text" placeholder="Enter product type" className="input input-bordered" name='type' required />
+                                <input type="text" placeholder="Enter product type" className="input input-bordered dark:text-black" name='type' required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Rating</span>
                                 </label>
-                                <input type="text" placeholder="Give ratings out of 5" className="input input-bordered" name='rating' required />
+                                <input type="text" placeholder="Give ratings out of 5" className="input input-bordered dark:text-black" name='rating' required />
                             </div>
                             <div className="form-control lg:col-span-2">
                                 <label className="label">
                                     <span className="text-sm md:text-lg lg:text-xl  font-semibold  ">Short Description</span>
                                 </label>
-                                <input type="text" placeholder="Enter a short description" className="input input-bordered" name='description' required />
+                                <input type="text" placeholder="Enter a short description" className="input input-bordered dark:text-black" name='description' required />
                             </div>
                             <button className='lg:col-span-2   mt-[10px] md:mt-[15px] lg:mt-[30px] text-base md:text-lg lg:text-xl py-2 md:py-3 lg:py-4 px-2 md:px-3 lg:px-4 rounded-[10px] bg-purple-500 text-white hover:bg-purple-600 font-bold '>Add Product</button>
                         </form>

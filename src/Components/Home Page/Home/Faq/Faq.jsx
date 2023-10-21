@@ -1,7 +1,7 @@
 const Faq = () => {
     return (
         <>
-            <section className="mb-5 md:mb-8 lg:mb-12">
+            <section className="pb-5 md:pb-8 lg:pb-12">
                 <h1 className="text-center text-xl md:text-3xl lg:text-5xl font font-semibold my-4 md:my-7 lg:my-9">F&Q</h1>
                 <div className="container mx-auto bg-purple-500 rounded-lg text-white">
                     <div tabIndex={0} className="collapse collapse-plus border rounded-none">

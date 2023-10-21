@@ -55,25 +55,25 @@ const Login = () => {
     return (
         <>
             <section className=" flex justify-center items-center">
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-body">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 dark:bg-slate-800 card-body">
                     <form onSubmit={handleLogin} className="">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered" name="email" required />
+                            <input type="email" placeholder="email" className="input input-bordered dark:text-black" name="email" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" className="input input-bordered" name="password" required />
+                            <input type="password" placeholder="password" className="input input-bordered dark:text-black" name="password" required />
                         </div>
                         <div className="form-control mt-6">
                             <button className="text-xs md:text-sm lg:text-base bg-purple-500 hover:bg-purple-600 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">LOGIN</button>
                         </div>
                     </form>
-                    <div className="text-black text-center">
+                    <div className=" text-center">
                         <p>Already have an account <Link to="/register" className="text-purple-600  font-bold hover:border-purple-500 hover:border-b-2">REGISTER</Link> </p>
                     </div>
                     <div className="flex items-center gap-1">

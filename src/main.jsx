@@ -41,12 +41,12 @@ const router = createBrowserRouter([
       {
         path: '/products/:brand',
         element: <Products></Products> ,
-        loader: ({params}) => fetch(`http://localhost:4849/products/${params.brand}`)
+        loader: ({params}) => fetch(`https://assignment-10-server-side-j6c21wesb-adriyan.vercel.app/products/${params.brand}`)
       },
       {
         path: '/products/:brand/:id',
         element: <Protection><Details></Details></Protection>,
-        loader:  ({params}) => fetch(`http://localhost:4849/products/${params.brand}/${params.id}`)
+        loader:  ({params}) => fetch(`https://assignment-10-server-side-j6c21wesb-adriyan.vercel.app/products/${params.brand}/${params.id}`)
       },
       {
         path: '/collection/:uid',
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: '/update/:id',
         element: <Protection><Update></Update></Protection>,
-        loader: ({params}) => fetch(`http://localhost:4849/products/brand/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-server-side-j6c21wesb-adriyan.vercel.app/products/brand/${params.id}`)
       }
     ]
   },

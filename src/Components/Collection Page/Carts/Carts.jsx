@@ -6,7 +6,7 @@ const Carts = () => {
     const {uid} = useParams();
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:4849/collections/${uid}`)
+        fetch(`https://assignment-10-server-side-j6c21wesb-adriyan.vercel.app/collections/${uid}`)
         .then(res => res.json())
         .then(data => setProducts(data))
     }, [products])

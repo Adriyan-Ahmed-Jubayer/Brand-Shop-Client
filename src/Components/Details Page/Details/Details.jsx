@@ -15,7 +15,7 @@ const Details = () => {
         const item = { ...product, uid }
         delete item._id;
 
-        fetch('http://localhost:4849/collections', {
+        fetch('https://assignment-10-server-side-j6c21wesb-adriyan.vercel.app/collections', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +56,7 @@ const Details = () => {
                                 <button onClick={handleAdd} className="text-xs md:text-sm lg:text-base border-purple-500 border-2 hover:bg-purple-600 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  hover:text-white font-semibold cursor-pointer">Add to Cart</button>
                                 <button onClick={handleBuy} className="text-xs md:text-sm lg:text-base bg-purple-500 hover:bg-purple-600 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  text-white font-semibold cursor-pointer">Buy Now</button>
                                 <Link to={`/update/${_id}`}>
-                                    <button className="text-xs md:text-sm lg:text-base border-purple-500 border-2 text-black hover:bg-purple-600 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  hover:text-white font-semibold cursor-pointer">Update</button>
+                                    <button className="text-xs md:text-sm lg:text-base border-purple-500 border-2 hover:bg-purple-600 p-3 md:px-5 lg:py-4 lg:px-9 rounded-md  hover:text-white font-semibold cursor-pointer">Update</button>
                                 </Link>
                             </div>
                         </div>
